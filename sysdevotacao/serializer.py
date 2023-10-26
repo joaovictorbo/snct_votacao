@@ -19,3 +19,12 @@ class TurmaSerializer(serializers.ModelSerializer):
             'tutor' ,
             'integrantes' 
                   )
+
+class VotacaoSerializer(serializers.ModelSerializer):
+
+
+    class Meta:
+        model = turmas
+        fields = (
+            'votos'
+                  )

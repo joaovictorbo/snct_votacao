@@ -10,4 +10,4 @@ class turmas(models.Model):
     escola = models.CharField(max_length=180)
     tutor = models.CharField(max_length=180)
     integrantes =models.TextField()
-
+    votos = models.PositiveIntegerField()
