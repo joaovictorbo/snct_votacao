@@ -30,3 +30,16 @@ class turmadetelhes(RetrieveUpdateDestroyAPIView):
 class Votacao(UpdateAPIView):
     queryset = turmas.objects.all()
     serializer_class = VotacaoSerializer
+
+    def partial_update(self, request, *args, **kwargs):
+        id = kwargs['pk']
+        turma = turmas.objects.get(id=id)
+
+        turma.votos += 1
+
+        turma.save()
+
+        kwargs['partial'] = True
+        return self.update(request, *args, **kwargs)
+
+

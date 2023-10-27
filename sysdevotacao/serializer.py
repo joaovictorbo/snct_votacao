@@ -25,5 +25,5 @@ class VotacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = turmas
         fields = (
-            'votos'
+            'votos',
                   )
