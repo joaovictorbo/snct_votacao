@@ -10,3 +10,7 @@ class turmas(models.Model):
     tutor = models.CharField(max_length=180)
     integrantes =models.TextField()
     votos = models.PositiveIntegerField(default=0)
+
+
+    def __str__(self):
+        return self.titulo
