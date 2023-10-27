@@ -4,14 +4,13 @@ from .serializer import TurmaSerializer,VotacaoSerializer
 
 # Create your views here.
 from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView,ListAPIView,UpdateAPIView
+from rest_framework.permissions import IsAdminUser
 
 
 class turmaLista(ListAPIView):
     queryset = turmas.objects.all()
     serializer_class = TurmaSerializer
 
-
-    
     def get_queryset(self):
         return super().get_queryset()
     
@@ -19,6 +18,7 @@ class turmaLista(ListAPIView):
 class turmaCriar(CreateAPIView):
     queryset = turmas.objects.all()
     serializer_class = TurmaSerializer
+    permission_classes = [IsAdminUser]
     
 
 

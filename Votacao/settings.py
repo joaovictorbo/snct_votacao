@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-74xzg-^q&b8q2_x&q#-=1*l^#v-=@$x%57_=@x-t&9u+&h#yhc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.1.1','192.168.7.132','127.0.0.1','localhost']
 
 
 # Application definition
@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     #apps
-    'sysdevotacao'
+    'sysdevotacao',
+     # CORS
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,10 +53,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        # CORS
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'Votacao.urls'
 
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#     '127.0.1.1:8000','192.168.7.132:8000','127.0.0.0:8000','localhost:8000'
+# )
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

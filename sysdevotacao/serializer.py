@@ -13,7 +13,6 @@ class TurmaSerializer(serializers.ModelSerializer):
             'id',
             'imagem' , 
             'titulo' ,
-            'descricaoshort' ,
             'descricao' ,
             'escola' ,
             'tutor' ,
