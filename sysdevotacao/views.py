@@ -5,11 +5,18 @@ from .serializer import TurmaSerializer,VotacaoSerializer
 # Create your views here.
 from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView,ListAPIView,UpdateAPIView
 from rest_framework.permissions import IsAdminUser
+from rest_framework.pagination import PageNumberPagination
 
+
+class PaginateionTrumas(PageNumberPagination):
+    page_size =10
+    page_query_param = 'page_size'
+    max_page_size = 100
 
 class turmaLista(ListAPIView):
     queryset = turmas.objects.all()
     serializer_class = TurmaSerializer
+    pagination_class = PaginateionTrumas
 
     def get_queryset(self):
         return super().get_queryset()
