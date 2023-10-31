@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import turmas
-from .serializer import TurmaSerializer,VotacaoSerializer
+from .models import turmas,escola
+from .serializer import TurmaSerializer,VotacaoSerializer,EscolaSerializer
 
 # Create your views here.
 from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView,ListAPIView,UpdateAPIView
@@ -32,6 +32,8 @@ class turmaCriar(CreateAPIView):
 class turmadetelhes(RetrieveUpdateDestroyAPIView):
     queryset = turmas.objects.all()
     serializer_class = TurmaSerializer
+    permission_classes = [IsAdminUser]
+
 
 
 class Votacao(UpdateAPIView):
@@ -50,3 +52,11 @@ class Votacao(UpdateAPIView):
         return self.update(request, *args, **kwargs)
 
 
+
+class escolaLista(ListAPIView):
+    queryset = escola.objects.all()
+    serializer_class = EscolaSerializer
+    pagination_class = PaginateionTrumas
+
+    def get_queryset(self):
+        return super().get_queryset()
