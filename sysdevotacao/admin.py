@@ -8,3 +8,4 @@ class turmasAdmin(admin.ModelAdmin):
 @admin.register(escola)
 class escolaAdmin(admin.ModelAdmin):
     list_display = ('id',)
+

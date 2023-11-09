@@ -20,13 +20,13 @@ class TurmaSerializer(serializers.ModelSerializer):
         model = turmas
         fields = (
             'id',
-            'imagem' , 
             'titulo' ,
             'descricao' ,
             'escolaID' ,
             'tutor' ,
             'integrantes',
             'nomeEscola',
+            'linkYoutube',
             'votos'
                   )
 
